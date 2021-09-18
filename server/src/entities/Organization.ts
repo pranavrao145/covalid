@@ -1,4 +1,5 @@
-import { PrimaryGeneratedColumn, Column, Entity, OneToMany } from 'typeorm'
+import { PrimaryGeneratedColumn, Column, Entity, OneToMany, ManyToOne, ManyToMany, JoinTable } from 'typeorm'
+import { Administrator } from './Administrator';
 import { Group } from './Group';
 
 @Entity()
@@ -16,4 +17,8 @@ export class Organization {
     date_created!: Date;
 
     @OneToMany(() => Group, group => group.organization) groups!: Group[];
+
+    @ManyToMany(() => Administrator)
+    @JoinTable()
+    administrators!: Administrator[];
 }
