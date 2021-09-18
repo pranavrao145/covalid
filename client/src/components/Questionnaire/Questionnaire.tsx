@@ -14,7 +14,7 @@ const QuestionnaireData = {
 
 const Questionnaire: React.FC = () => {
 	const [formData, setFormData] = useState(QuestionnaireData);
-	const [step, setStep] = useState<number>(2);
+	const [step, setStep] = useState<number>(3);
 
 	const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 		setFormData((prevFormData) => ({
@@ -40,9 +40,9 @@ const Questionnaire: React.FC = () => {
 			<form onSubmit={onSubmit} className="bg-gray-100">
 				{step === 1 && <ScreeningBegin nextStep={nextStep} />}
 				{step === 2 && <ScreeningUserInfo prevStep={prevStep} nextStep={nextStep} onChange={onChange} />}
-				{step === 3 && <ScreeningVaccination />}
-				{step === 4 && <ScreeningTravelQuarantine />}
-				{step === 5 && <ScreeningDoctor />}
+				{step === 3 && <ScreeningVaccination prevStep={prevStep} nextStep={nextStep} onChange={onChange} />}
+				{step === 4 && <ScreeningTravelQuarantine prevStep={prevStep} nextStep={nextStep} onChange={onChange} />}
+				{step === 5 && <ScreeningDoctor prevStep={prevStep} nextStep={nextStep} onChange={onChange} />}
 				{step === 6 && <ScreeningSymptoms />}
 				{step === 7 && <ScreeningCovidTesting />}
 			</form>
