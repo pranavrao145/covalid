@@ -3,6 +3,7 @@ import { ThemeProvider, createTheme } from "@mui/material";
 import { GridColDef, GridRowModel, GridRowParams } from "@mui/x-data-grid";
 import DataGrid from "./components/DataGrid";
 import Questionnaire from "./components/Questionnaire/Questionnaire";
+import TopBar from "./TopBar";
 
 const App: React.FC = () => {
 	const columns = [
@@ -81,9 +82,12 @@ const App: React.FC = () => {
 				},
 			})}
 		>
-			<div className="h-screen w-full flex items-center justify-center bg-gray-100">
-				<Questionnaire />
-			</div>
+			<>
+				<TopBar />
+				<div className="h-screen w-full flex flex-col items-center justify-center bg-gray-100">
+					<Questionnaire />
+				</div>
+			</>
 		</ThemeProvider>
 	);
 };
