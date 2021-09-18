@@ -92,7 +92,7 @@ export const deleteGroup = async (req: Request, res: Response) => {
     try {
         // get the group with the uid specified
         const group = await repository.findOne(req.params.id);
- 
+
         // delete the group 
         const saveResults = await repository.delete(group!);
 
@@ -118,5 +118,24 @@ export const getGroupOrganization = async (req: Request, res: Response) => {
         res.status(200).json(organization);
     } catch (e) {
         res.status(404).json({ message: "An error occurred fetching this group's organization." });
+    }
+}
+
+// GET /groups/:id/managers
+export const getGroupManagers = async (req: Request, res: Response) => {
+    // get a connection to the database
+    const connection = await createConnection();
+
+    // access the group repository
+    const repository = connection.getRepository(Group);
+
+    try {
+        // get the group with the uid specified
+        const group = await repository.findOne(req.params.id);
+        // get the managers of the group
+        const managers = group!.managers;
+        res.status(200).json(managers);
+    } catch (e) {
+        res.status(404).json({ message: "An error occurred fetching this group's managers." });
     }
 }
