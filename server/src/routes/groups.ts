@@ -4,11 +4,11 @@ import { get } from 'https';
 import { createGroup, deleteGroup, getAllGroups, getGroup, updateGroup } from '../controllers/groups';
 
 const router = express.Router();
-router.get("/groups/:uid",getGroup)
-router.get("/groups",getAllGroups)
-router.post("/groups", createGroup)
-router.put("/groups/:uid", updateGroup)
-router.delete("/groups/:uid",deleteGroup)
+router.get("/:uid",getGroup)
+router.get("/",getAllGroups)
+router.post("/", createGroup)
+router.put("/:uid", updateGroup)
+router.delete("//:uid",deleteGroup)
 
 export default router;
 

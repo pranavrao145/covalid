@@ -4,11 +4,11 @@ import { get } from 'https';
 import { createManager, deleteManager, getAllManagers, getManager, updateManager } from '../controllers/managers';
 
 const router = express.Router();
-router.get("/managers/:uid",getManager)
-router.get("/managers",getAllManagers)
-router.post("/managers", createManager)
-router.put("/managers/:uid", updateManager)
-router.delete("/managers/:uid",deleteManager)
+router.get("/:uid",getManager)
+router.get("/",getAllManagers)
+router.post("/", createManager)
+router.put("/:uid", updateManager)
+router.delete("/:uid",deleteManager)
 
 export default router;
 
