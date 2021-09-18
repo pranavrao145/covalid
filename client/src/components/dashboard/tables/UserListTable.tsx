@@ -64,9 +64,7 @@ const UserListTable: React.FC<{
 				headerName: "Actions",
 				type: "actions",
 				flex: 1,
-				getActions: (params: GridRowParams) => [
-					<Button className="bg-orange-600 hover:bg-orange-700">Trace contacts</Button>,
-				],
+				getActions: () => [<Button className="bg-orange-600 hover:bg-orange-700">Trace contacts</Button>],
 				align: "center",
 				headerAlign: "center",
 			},

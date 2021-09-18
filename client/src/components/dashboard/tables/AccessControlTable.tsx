@@ -64,7 +64,7 @@ const AccessControlTable: React.FC<{
 				headerName: "Actions",
 				type: "actions",
 				flex: 0.75,
-				getActions: (params: GridRowParams) => [<Button className="bg-red-600 hover:bg-red-700">Delete</Button>],
+				getActions: () => [<Button className="bg-red-600 hover:bg-red-700">Delete</Button>],
 				align: "center",
 				headerAlign: "center",
 			},

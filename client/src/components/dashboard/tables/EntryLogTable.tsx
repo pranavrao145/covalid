@@ -86,7 +86,7 @@ const EntryLogTable: React.FC<{
 				headerName: "Actions",
 				type: "actions",
 				flex: 2,
-				getActions: (params: GridRowParams) => [
+				getActions: () => [
 					<Button onClick={() => toggleSlideOver(true)}>View full log</Button>,
 					<Button className="bg-orange-600 hover:bg-orange-700">Trace contacts</Button>,
 				],
