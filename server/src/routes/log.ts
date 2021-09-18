@@ -4,11 +4,11 @@ import { get } from 'https';
 import { createLog, deleteLog, getAllLogs, getLog, updateLog } from '../controllers/logs';
 
 const router = express.Router();
-router.get("/logs/:uid",getLog)
-router.get("/logs",getAllLogs)
-router.post("/logs", createLog)
-router.put("/logs/:uid", updateLog)
-router.delete("/logs/:uid",deleteLog)
+router.get("/:uid",getLog)
+router.get("/",getAllLogs)
+router.post("/", createLog)
+router.put("/:uid", updateLog)
+router.delete("//:uid",deleteLog)
 
 export default router;
 
