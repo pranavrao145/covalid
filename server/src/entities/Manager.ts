@@ -1,4 +1,4 @@
-import { ChildEntity, JoinTable, ManyToMany } from "typeorm";
+import { ChildEntity, ManyToMany } from "typeorm";
 import { Group } from "./Group";
 import { User } from "./User";
 
