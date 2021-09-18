@@ -120,3 +120,22 @@ export const getOrganizationGroups = async (req: Request, res: Response) => {
         res.status(404).json({ message: "An error occurred fetching this organization's groups." });
     }
 }
+
+// GET /organizations/:id/administrators
+export const getOrganizationAdministrators = async (req: Request, res: Response) => {
+    // get a connection to the database
+    const connection = await createConnection();
+
+    // access the organization repository
+    const repository = connection.getRepository(Organization);
+
+    try {
+        // get the organization with the uid specified
+        const organization = await repository.findOne(req.params.id);
+        // get the administrators of the organization
+        const administrators = organization!.administrators;
+        res.status(200).json(administrators);
+    } catch (e) {
+        res.status(404).json({ message: "An error occurred fetching this organization's administrators." });
+    }
+}
