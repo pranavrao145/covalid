@@ -1,7 +1,7 @@
-import express from 'express';
+import express, { Router } from 'express';
 import { createQuestionnaire, deleteQuestionnaire, getAllQuestionnaires, getQuestionnaire, updateQuestionnaire } from '../controllers/questionnaires';
 
-const router = express.Router();
+const router: Router = express.Router();
 
 router.get("/:uid", getQuestionnaire)
 router.get("/", getAllQuestionnaires)

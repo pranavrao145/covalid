@@ -1,7 +1,7 @@
-import express from 'express';
+import express, { Router } from 'express';
 import { createGroup, deleteGroup, getAllGroups, getGroup, updateGroup } from '../controllers/groups';
 
-const router = express.Router();
+const router: Router = express.Router();
 
 router.get("/:uid", getGroup)
 router.get("/", getAllGroups)
