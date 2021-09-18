@@ -29,7 +29,7 @@ const renderGroupsInput = ({ value }: GridRenderCellParams | GridRenderEditCellP
 	/>
 );
 
-const UserListTable: React.FC<{
+const AccessControlTable: React.FC<{
 	entries: TableEntry[];
 }> = ({ entries }) => {
 	const columns = (
@@ -53,7 +53,7 @@ const UserListTable: React.FC<{
 			},
 			{
 				field: "groups",
-				headerName: "Groups",
+				headerName: "Group Access",
 				flex: 2.5,
 				editable: true,
 				renderCell: (params) => renderGroupsInput(params, false),
@@ -63,10 +63,8 @@ const UserListTable: React.FC<{
 				field: "actions",
 				headerName: "Actions",
 				type: "actions",
-				flex: 1,
-				getActions: (params: GridRowParams) => [
-					<Button className="bg-orange-600 hover:bg-orange-700">Trace contacts</Button>,
-				],
+				flex: 0.75,
+				getActions: (params: GridRowParams) => [<Button className="bg-red-600 hover:bg-red-700">Delete</Button>],
 				align: "center",
 				headerAlign: "center",
 			},
@@ -85,4 +83,4 @@ const UserListTable: React.FC<{
 	return <DataGrid columns={columns} rows={rows} />;
 };
 
-export default UserListTable;
+export default AccessControlTable;

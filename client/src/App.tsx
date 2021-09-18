@@ -5,6 +5,7 @@ import Sidebar from "./components/dashboard/Sidebar";
 import EntryLogs from "./pages/EntryLogs";
 import ManageUsers from "./pages/ManageUsers";
 import ManageGroups from "./pages/ManageGroups";
+import AccessControl from "./pages/AccessControl";
 
 const App: React.FC = () => (
 	<Router>
@@ -32,6 +33,9 @@ const App: React.FC = () => (
 					</Route>
 					<Route path="/admin/groups">
 						<ManageGroups />
+					</Route>
+					<Route path="/admin/access">
+						<AccessControl />
 					</Route>
 				</Switch>
 			</div>
