@@ -81,9 +81,8 @@ const App: React.FC = () => {
 				},
 			})}
 		>
-			<div className="h-[40vh] w-[60vw] m-16">
+			<div className="h-screen w-full flex items-center justify-center bg-gray-100">
 				<Questionnaire />
-				<DataGrid columns={columns} rows={rows} />
 			</div>
 		</ThemeProvider>
 	);
