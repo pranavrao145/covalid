@@ -92,12 +92,31 @@ export const deleteQuestionnaire = async (req: Request, res: Response) => {
     try {
         // get the questionnaire with the uid specified
         const questionnaire = await repository.findOne(req.params.id);
- 
+
         // delete the questionnaire 
         const saveResults = await repository.delete(questionnaire!);
 
         res.status(200).json(saveResults);
     } catch (e) {
         res.status(404).json({ message: "An error occurred deleting this questionnaire." });
+    }
+}
+
+// GET /questionnaires/:id/user
+export const getQuestionnaireUser = async (req: Request, res: Response) => {
+    // get a connection to the database
+    const connection = await createConnection();
+
+    // access the questionnaire repository
+    const repository = connection.getRepository(Questionnaire);
+
+    try {
+        // get the questionnaire with the uid specified
+        const questionnaire = await repository.findOne(req.params.id);
+        // get the user for this questionnaire
+        const user = questionnaire!.user;
+        res.status(200).json(user);
+    } catch (e) {
+        res.status(404).json({ message: "An error occurred fetching this questionnaire's user." });
     }
 }
