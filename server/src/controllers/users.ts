@@ -80,3 +80,22 @@ export const deleteUser = async (req: Request, res: Response) => {
         res.status(404).json({ message: "An error occurred deleting this user." });
     }
 }
+
+// GET /users/:firebase_uid/questionnaires
+export const getUserQuestionnaires = async (req: Request, res: Response) => {
+    // get a connection to the database
+    const connection = await createConnection();
+
+    // access the user repository
+    const repository = connection.getRepository(User);
+
+    try {
+        // get the user with the uid specified
+        const user = await repository.findOne({ firebase_uid: req.params.firebase_uid });
+        // get the user's questionnaires
+        const questionnaires = user!.questionnaires;
+        res.status(200).json(questionnaires);
+    } catch (e) {
+        res.status(404).json({ message: "An error occurred fetching this user's questionnaires." });
+    }
+}
