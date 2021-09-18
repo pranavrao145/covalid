@@ -1,7 +1,7 @@
-import express from 'express';
+import express, { Router } from 'express';
 import { createOrganization, deleteOrganization, getAllOrganizations, getOrganization, updateOrganization } from '../controllers/organizations';
 
-const router = express.Router();
+const router: Router = express.Router();
 
 router.get("/:uid", getOrganization)
 router.get("/", getAllOrganizations)
