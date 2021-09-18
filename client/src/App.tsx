@@ -4,6 +4,7 @@ import { ThemeProvider, createTheme } from "@mui/material";
 import Sidebar from "./components/dashboard/Sidebar";
 import EntryLogs from "./pages/EntryLogs";
 import ManageUsers from "./pages/ManageUsers";
+import ManageGroups from "./pages/ManageGroups";
 
 const App: React.FC = () => (
 	<Router>
@@ -28,6 +29,9 @@ const App: React.FC = () => (
 					</Route>
 					<Route path="/admin/users">
 						<ManageUsers />
+					</Route>
+					<Route path="/admin/groups">
+						<ManageGroups />
 					</Route>
 				</Switch>
 			</div>
