@@ -1,8 +1,9 @@
 import React from "react";
-import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { ThemeProvider, createTheme } from "@mui/material";
 import Sidebar from "./components/dashboard/Sidebar";
 import EntryLogs from "./pages/EntryLogs";
+import ManageUsers from "./pages/ManageUsers";
 
 const App: React.FC = () => (
 	<Router>
@@ -20,10 +21,13 @@ const App: React.FC = () => (
 			})}
 		>
 			<div className="flex flex-row w-screen h-screen bg-gray-100">
-				<Sidebar selected="Entry Logs" />
+				<Sidebar />
 				<Switch>
 					<Route path="/admin/logs">
 						<EntryLogs />
+					</Route>
+					<Route path="/admin/users">
+						<ManageUsers />
 					</Route>
 				</Switch>
 			</div>
