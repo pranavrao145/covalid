@@ -6,15 +6,16 @@ import {
 	GridRowModel,
 	GridRowParams,
 } from "@mui/x-data-grid";
-import { Autocomplete, TextField, Chip } from "@mui/material";
+import { Autocomplete, TextField } from "@mui/material";
 import Badge from "../../ui/Badge";
 import Button from "../../ui/Button";
 import DataGrid from "../../ui/DataGrid";
 import "./CustomTable.css";
 
-interface TableEntry {
+export interface TableEntry {
 	id: number;
 	name: string;
+	email: string;
 	groups: string[];
 	dateCreated: Date;
 	cleared: boolean;
@@ -44,7 +45,8 @@ const renderGroupsInput = ({ value }: GridRenderCellParams | GridRenderEditCellP
 
 const EntryLogTable: React.FC<{
 	entries: TableEntry[];
-}> = ({ entries }) => {
+	toggleSlideOver: React.Dispatch<React.SetStateAction<boolean>>;
+}> = ({ entries, toggleSlideOver }) => {
 	const columns = (
 		[
 			{
@@ -85,7 +87,7 @@ const EntryLogTable: React.FC<{
 				type: "actions",
 				flex: 2,
 				getActions: (params: GridRowParams) => [
-					<Button>View full log</Button>,
+					<Button onClick={() => toggleSlideOver(true)}>View full log</Button>,
 					<Button className="bg-orange-600 hover:bg-orange-700">Trace contacts</Button>,
 				],
 				align: "center",
