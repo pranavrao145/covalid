@@ -1,11 +1,20 @@
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const { teal } = require("tailwindcss/colors");
+
 module.exports = {
-    purge: ['./src/**/*.{js,jsx,ts,tsx}'],
-    darkMode: false, // or 'media' or 'class'
-    theme: {
-        extend: {},
-    },
-    variants: {
-        extend: {},
-    },
-    plugins: [],
-}
+	purge: [],
+	mode: "jit",
+	darkMode: false,
+	theme: {
+		extend: {
+			colors: {
+				...teal,
+				600: "#0BA89A",
+			},
+		},
+	},
+	variants: {
+		extend: {},
+	},
+	plugins: [],
+};
