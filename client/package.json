@@ -8,6 +8,11 @@
     "serve": "vite preview"
   },
   "dependencies": {
+    "@emotion/react": "next",
+    "@emotion/styled": "next",
+    "@mui/material": "next",
+    "@mui/styles": "next",
+    "@mui/x-data-grid": "next",
     "react": "^17.0.0",
     "react-dom": "^17.0.0"
   },
