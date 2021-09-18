@@ -3,7 +3,6 @@ import dotenv from 'dotenv'
 import userRoutes from './routes/users'
 import administratorRoutes from './routes/administrators'
 import groupRoutes from './routes/groups'
-import logRoutes from './routes/logs'
 import managerRoutes from './routes/managers'
 import memberRoutes from './routes/members'
 import organizationRoutes from './routes/organizations'
@@ -24,7 +23,6 @@ app.use(express.urlencoded({ extended: true }));
 app.use('/users', userRoutes);
 app.use('/administrators', administratorRoutes);
 app.use('/groups', groupRoutes);
-app.use('/logs', logRoutes);
 app.use('/managers', managerRoutes);
 app.use('/members', memberRoutes);
 app.use('/organizations', organizationRoutes);
