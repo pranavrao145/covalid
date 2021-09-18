@@ -1,4 +1,6 @@
-import { PrimaryGeneratedColumn, Column, Entity } from 'typeorm'
+import { PrimaryGeneratedColumn, Column, Entity, OneToOne, JoinColumn } from 'typeorm'
+import { Manager } from './Manager';
+import { Member } from './Member';
 
 @Entity()
 export class Log {
@@ -19,4 +21,12 @@ export class Log {
 
     @Column({ type: 'timestamptz' })
     date_created!: Date;
+
+    @OneToOne(() => Manager)
+    @JoinColumn()
+    manager!: Manager;
+
+    @OneToOne(() => Member)
+    @JoinColumn()
+    member!: Member;
 }
