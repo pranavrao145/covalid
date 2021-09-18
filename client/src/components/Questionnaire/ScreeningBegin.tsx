@@ -6,7 +6,7 @@ const ScreeningBegin: React.FC<ScreeningPropsInterface> = (props: ScreeningProps
 	const { nextStep } = props;
 
 	return (
-		<div className="px-16 lg:px-32">
+		<div className="px-16 lg:px-32 mb-24">
 			<h1 className="text-4xl leading-10 font-bold mb-4">Covalid COVID-19 Screening</h1>
 			<div className="bg-yellow-50 border-l-4 border-yellow-400 p-4">
 				<div className="flex">
