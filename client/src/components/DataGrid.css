@@ -1,0 +1,19 @@
+.MuiDataGrid-root {
+    @apply rounded-lg;
+}
+
+.MuiDataGrid-root .MuiDataGrid-main .MuiDataGrid-columnsContainer, .MuiDataGrid-root .MuiDataGrid-main .MuiDataGrid-cell {
+    @apply border-none;
+}
+
+.MuiDataGrid-root .MuiDataGrid-main .MuiDataGrid-columnSeparator {
+    @apply hidden;
+}
+
+.MuiDataGrid-root .MuiDataGrid-main MuiDataGrid-renderingZone:nth-child(even) {
+    @apply bg-white;
+}
+
+.MuiDataGrid-root .MuiDataGrid-main MuiDataGrid-renderingZone:nth-child(odd) {
+    @apply bg-gray-100;
+}
