@@ -1,15 +1,16 @@
 {
-  "compilerOptions": {
-    "target": "esnext",                                     
-    "experimentalDecorators": true,                      
-    "module": "esnext",                                
-    "rootDir": "./src",                                 
-    "allowJs": false,                                  
-    "outDir": "./dist",                               
-    "esModuleInterop": true,                         
-    "moduleResolution": "node",
-    "forceConsistentCasingInFileNames": true,       
-    "strict": true,                                
-    "skipLibCheck": true                          
-  }
+    "compilerOptions": {
+        "target": "esnext",                                     
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+        "module": "esnext",                                
+        "rootDir": "./src",                                 
+        "allowJs": false,                                  
+        "outDir": "./dist",                               
+        "esModuleInterop": true,                         
+        "moduleResolution": "node",
+        "forceConsistentCasingInFileNames": true,       
+        "strict": true,                                
+        "skipLibCheck": true                          
+    }
 }
