@@ -2,17 +2,6 @@ import React, { useState } from "react";
 import EntryLogTable from "../components/dashboard/tables/EntryLogTable";
 import LogSlideOver from "../components/dashboard/LogSlideOver";
 
-const questionMapping = {
-	vaccinated_or_had_covid: "Do any of the following apply to you?",
-	recently_travelled:
-		"In the last 14 days, have you travelled outside of Canada and been told to quarantine (per the federal quarantine requirements)?",
-	doctor_told_to_quarantine:
-		"Has a doctor, health care provider, or public health unit told you that you should currently be isolating (staying at home)?",
-	has_symptoms: "Are you currently experiencing any of these symptoms?",
-	tested_positive:
-		"In the last 10 days, have you tested positive on a rapid antigen test or home-based self-testing kit?",
-};
-
 const entries = [
 	{
 		id: 1,
@@ -21,6 +10,13 @@ const entries = [
 		groups: ["Ms. Smith's Class", "Mr. Jones's Class"],
 		dateCreated: new Date("2021-01-17T09:44:10"),
 		cleared: true,
+		answers: {
+			vaccinated_or_had_covid: false,
+			recently_travelled: false,
+			doctor_told_to_quarantine: false,
+			has_symptoms: false,
+			tested_positive: false,
+		},
 	},
 	{
 		id: 2,
@@ -29,6 +25,13 @@ const entries = [
 		groups: ["Ms. Smith's Class", "Mr. Jones's Class"],
 		dateCreated: new Date("2021-01-17T09:44:10"),
 		cleared: true,
+		answers: {
+			vaccinated_or_had_covid: false,
+			recently_travelled: false,
+			doctor_told_to_quarantine: false,
+			has_symptoms: false,
+			tested_positive: false,
+		},
 	},
 	{
 		id: 3,
@@ -37,6 +40,13 @@ const entries = [
 		groups: ["Ms. Smith's Class", "Mr. Jones's Class"],
 		dateCreated: new Date("2021-01-17T09:44:10"),
 		cleared: true,
+		answers: {
+			vaccinated_or_had_covid: false,
+			recently_travelled: false,
+			doctor_told_to_quarantine: false,
+			has_symptoms: false,
+			tested_positive: false,
+		},
 	},
 	{
 		id: 4,
@@ -45,6 +55,13 @@ const entries = [
 		groups: ["Ms. Smith's Class", "Mr. Jones's Class"],
 		dateCreated: new Date("2021-01-17T09:44:10"),
 		cleared: true,
+		answers: {
+			vaccinated_or_had_covid: false,
+			recently_travelled: false,
+			doctor_told_to_quarantine: false,
+			has_symptoms: false,
+			tested_positive: false,
+		},
 	},
 ];
 
