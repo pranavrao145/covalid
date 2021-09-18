@@ -1,6 +1,7 @@
-import { PrimaryGeneratedColumn, Column, Entity, OneToOne, JoinColumn } from 'typeorm'
+import { PrimaryGeneratedColumn, Column, Entity, OneToOne, JoinColumn, ManyToOne } from 'typeorm'
 import { Manager } from './Manager';
 import { Member } from './Member';
+import { Group } from './Group';
 
 @Entity()
 export class Log {
@@ -29,4 +30,6 @@ export class Log {
     @OneToOne(() => Member)
     @JoinColumn()
     member!: Member;
+
+    @ManyToOne(() => Group, group => group.logs) group!: Group;
 }
