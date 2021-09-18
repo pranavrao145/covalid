@@ -1,4 +1,5 @@
-import { PrimaryGeneratedColumn, Column, Entity } from 'typeorm'
+import { PrimaryGeneratedColumn, Column, Entity, ManyToOne } from 'typeorm'
+import { User } from './User';
 
 @Entity()
 export class Questionnaire {
@@ -25,4 +26,6 @@ export class Questionnaire {
 
     @Column({ type: 'timestamptz' })
     date_created!: Date;
+
+    @ManyToOne(() => User, user => user.questionnaires) user!: User;
 }
