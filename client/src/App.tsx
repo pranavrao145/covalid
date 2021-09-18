@@ -2,6 +2,8 @@ import React from "react";
 import { ThemeProvider, createTheme } from "@mui/material";
 import { GridColDef, GridRowModel, GridRowParams } from "@mui/x-data-grid";
 import DataGrid from "./components/DataGrid";
+import Questionnaire from "./components/Questionnaire/Questionnaire";
+import TopBar from "./TopBar";
 
 const App: React.FC = () => {
 	const columns = [
@@ -36,7 +38,7 @@ const App: React.FC = () => {
 			headerName: "Actions",
 			type: "actions",
 			flex: 2,
-			getActions: (params: GridRowParams) => [<button>hi</button>],
+			getActions: (params: GridRowParams) => [<button type="button">hi</button>],
 		},
 	] as GridColDef[];
 
@@ -80,9 +82,12 @@ const App: React.FC = () => {
 				},
 			})}
 		>
-			<div className="h-[40vh] w-[60vw] m-16">
-				<DataGrid columns={columns} rows={rows} />
-			</div>
+			<>
+				<TopBar />
+				<div className="h-screen w-full flex flex-col items-center justify-center bg-gray-100">
+					<Questionnaire />
+				</div>
+			</>
 		</ThemeProvider>
 	);
 };
