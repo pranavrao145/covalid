@@ -4,7 +4,6 @@ import { User } from "./User";
 
 @ChildEntity()
 export class Manager extends User {
-    @ManyToMany(() => Group)
-    @JoinTable()
+    @ManyToMany(() => Group, group => group.managers)
     groups!: Group[];
 }
