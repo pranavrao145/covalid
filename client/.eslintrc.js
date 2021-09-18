@@ -17,6 +17,7 @@ module.exports = {
 		},
 		ecmaVersion: 12,
 		sourceType: "module",
+		tsconfigRootDir: __dirname,
 		project: "./tsconfig.eslint.json",
 	},
 	plugins: ["react", "@typescript-eslint", "prettier"],
@@ -27,5 +28,15 @@ module.exports = {
 		"react/jsx-filename-extension": [2, { extensions: [".js", ".jsx", ".ts", ".tsx"] }],
 		"import/no-extraneous-dependencies": 0,
 		"@typescript-eslint/ban-ts-comment": 0,
+		"jsx-a11y/label-has-associated-control": ["error", {
+			"required": {
+				"some": ["nesting", "id"]
+			}
+		}],
+		"jsx-a11y/label-has-for": ["error", {
+			"required": {
+				"some": ["nesting", "id"]
+			}
+		}]
 	},
 };

@@ -17,6 +17,9 @@ module.exports = {
 			fontFamily: {
 				sans: ["Inter var", ...require("tailwindcss/defaultTheme").fontFamily.sans],
 			},
+			fontFamily: {
+				sans: ["Inter var", ...require("tailwindcss/defaultTheme").fontFamily.sans],
+			},
 		},
 	},
 	variants: {
