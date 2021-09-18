@@ -101,3 +101,22 @@ export const deleteMember = async (req: Request, res: Response) => {
         res.status(404).json({ message: "An error occurred deleting this member." });
     }
 }
+
+// GET /members/:firebase_uid/groups
+export const getMemberGroups = async (req: Request, res: Response) => {
+    // get a connection to the database
+    const connection = await createConnection();
+
+    // access the member repository
+    const repository = connection.getRepository(Member);
+
+    try {
+        // get the member with the uid specified
+        const member = await repository.findOne({ firebase_uid: req.params.firebase_uid });
+        // get the groups of the member
+        const groups = member!.groups;
+        res.status(200).json(groups);
+    } catch (e) {
+        res.status(404).json({ message: "An error occurred fetching this member's groups." });
+    }
+}
