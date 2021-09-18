@@ -23,3 +23,7 @@
 .MuiDataGrid-root .MuiDataGrid-main .MuiDataGrid-columnsContainer {
     @apply justify-center;
 }
+
+.MuiDataGrid-root .MuiGridToolbarContainer-root .MuiButton-root .MuiButton-text {
+    @apply text-8xl;
+}
