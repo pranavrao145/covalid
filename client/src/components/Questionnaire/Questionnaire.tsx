@@ -10,11 +10,21 @@ import ScreeningCovidTesting from "./ScreeningCovidTesting";
 const QuestionnaireData = {
 	fullName: "",
 	email: "",
+	vaccinatedOrPositive: false,
+	travelledOutside: false,
+	doctorIsolating: false,
+	feversOrChills: false,
+	coughing: false,
+	shortnessOfBreath: false,
+	lossOfTasteSmell: false,
+	muscleJointPain: false,
+	extremeTiredness: false,
+	noneOfTheAbove: false,
 };
 
 const Questionnaire: React.FC = () => {
-	const [formData, setFormData] = useState(QuestionnaireData);
-	const [step, setStep] = useState<number>(3);
+	const [, setFormData] = useState(QuestionnaireData);
+	const [step, setStep] = useState<number>(1);
 
 	const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 		setFormData((prevFormData) => ({
@@ -43,8 +53,10 @@ const Questionnaire: React.FC = () => {
 				{step === 3 && <ScreeningVaccination prevStep={prevStep} nextStep={nextStep} onChange={onChange} />}
 				{step === 4 && <ScreeningTravelQuarantine prevStep={prevStep} nextStep={nextStep} onChange={onChange} />}
 				{step === 5 && <ScreeningDoctor prevStep={prevStep} nextStep={nextStep} onChange={onChange} />}
-				{step === 6 && <ScreeningSymptoms />}
-				{step === 7 && <ScreeningCovidTesting />}
+				{step === 6 && <ScreeningSymptoms prevStep={prevStep} nextStep={nextStep} onChange={onChange} />}
+				{step === 7 && (
+					<ScreeningCovidTesting prevStep={prevStep} nextStep={nextStep} onChange={onChange} onSubmit={onSubmit} />
+				)}
 			</form>
 		</>
 	);
