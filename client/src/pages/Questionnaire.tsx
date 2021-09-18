@@ -1,7 +1,7 @@
 import React from "react";
 import { ThemeProvider, createTheme } from "@mui/material";
 import Questionnaire from "../components/Questionnaire/Questionnaire";
-import TopBar from "../TopBar";
+import TopBar from "../components/TopBar";
 
 const QuestionnairePage: React.FC = () => (
 	<ThemeProvider
