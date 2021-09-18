@@ -11,10 +11,10 @@ export abstract class User {
     firebase_uid!: string;
 
     @Column()
-    lastName!: string;
+    last_name!: string;
 
     @Column()
-    firstName!: string;
+    first_name!: string;
 
     @Column({ type: 'timestamptz' })
     date_created!: Date;
