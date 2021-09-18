@@ -1,5 +1,5 @@
 export interface ScreeningPropsInterface {
-	nextStep: () => void;
+	nextStep?: () => void;
 	prevStep?: () => void;
-	onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+	onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
