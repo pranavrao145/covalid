@@ -1,6 +1,7 @@
 import { Request, Response } from "express";
 import { createConnection } from "typeorm";
 import { Group } from "../entities/Group";
+import { Member } from "../entities/Member";
 
 // GET /groups/:id
 export const getGroup = async (req: Request, res: Response) => {
@@ -137,5 +138,101 @@ export const getGroupManagers = async (req: Request, res: Response) => {
         res.status(200).json(managers);
     } catch (e) {
         res.status(404).json({ message: "An error occurred fetching this group's managers." });
+    }
+}
+
+// POST /group/:id/add_member/:firebase_uid
+export const addMemberToGroup = async (req: Request, res: Response) => {
+    // get a connection to the database
+    const connection = await createConnection();
+
+    // access the group repository
+    const groupRepository = connection.getRepository(Group);
+
+    // access the member repository
+    const memberRepository = connection.getRepository(Member);
+
+    let group: any;
+
+    try {
+        // get the group with the id specified
+        group = await groupRepository.findOne(req.params.id);
+    } catch (e) {
+        res.status(404).json({ message: "An error occurred adding the member to the group." });
+    }
+
+    let member: any;
+
+    try {
+        // get the member with the uid specified
+        member = await memberRepository.findOne({ firebase_uid: req.params.firebase_uid });
+    } catch (e) {
+        res.status(404).json({ message: "An error occurred adding the member to the group." });
+    }
+
+    // add the member to the group
+    group!.members.push(member!);
+
+    // add the group to the member
+    member!.groups.push(group!);
+
+    try {
+        // save the member and the group
+        await groupRepository.save(group!);
+        await memberRepository.save(member!);
+
+        res.status(200).json({ message: "Success!" });
+    } catch (e) {
+        res.status(404).json({ message: "An error occurred adding the member to the group." });
+    }
+}
+
+// POST /group/:id/remove_member/:firebase_uid
+export const removeMemberFromGroup = async (req: Request, res: Response) => {
+    // get a connection to the database
+    const connection = await createConnection();
+
+    // access the group repository
+    const groupRepository = connection.getRepository(Group);
+
+    // access the member repository
+    const memberRepository = connection.getRepository(Member);
+
+    let group: any;
+
+    try {
+        // get the group with the id specified
+        group = await groupRepository.findOne(req.params.id);
+    } catch (e) {
+        res.status(404).json({ message: "An error occurred removing the member from the group." });
+    }
+
+    let member: any;
+
+    try {
+        // get the member with the uid specified
+        member = await memberRepository.findOne({ firebase_uid: req.params.firebase_uid });
+    } catch (e) {
+        res.status(404).json({ message: "An error occurred removing the member from the group." });
+    }
+
+    // remove the member from the group
+    group!.members.forEach((item: any, index: any) => {
+        if (item === member) group!.members.splice(index, 1);
+    });
+
+    // remove the group from the member
+    member!.groups.forEach((item: any, index: any) => {
+        if (item === group) member!.groups.splice(index, 1);
+    });
+
+    try {
+        // save the member and the group
+        await groupRepository.save(group!);
+        await memberRepository.save(member!);
+
+        res.status(200).json({ message: "Success!" });
+    } catch (e) {
+        res.status(404).json({ message: "An error occurred removing the member from the group." });
     }
 }
