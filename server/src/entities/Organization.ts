@@ -1,4 +1,4 @@
-import { PrimaryGeneratedColumn, Column, Entity, OneToMany, ManyToOne, ManyToMany, JoinTable } from 'typeorm'
+import { PrimaryGeneratedColumn, Column, Entity, OneToMany, ManyToMany, JoinTable } from 'typeorm'
 import { Administrator } from './Administrator';
 import { Group } from './Group';
 
