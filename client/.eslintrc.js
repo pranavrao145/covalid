@@ -21,8 +21,9 @@ module.exports = {
 	},
 	plugins: ["react", "@typescript-eslint", "prettier"],
 	rules: {
-		quotes: [2, "double"],
+		quotes: [2, "double", { avoidEscape: true }],
 		"prettier/prettier": 2,
+		"react/jsx-props-no-spreading": 0,
 		"react/jsx-filename-extension": [2, { extensions: [".js", ".jsx", ".ts", ".tsx"] }],
 		"import/no-extraneous-dependencies": 0,
 	},

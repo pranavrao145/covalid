@@ -1,4 +1,5 @@
 import React from "react";
+import { ThemeProvider, createTheme } from "@mui/material";
 import { GridColDef, GridRowModel, GridRowParams } from "@mui/x-data-grid";
 import DataGrid from "./components/DataGrid";
 
@@ -6,6 +7,7 @@ const App: React.FC = () => {
 	const columns = [
 		{
 			field: "id",
+			hide: true,
 		},
 		{
 			field: "name",
@@ -70,11 +72,18 @@ const App: React.FC = () => {
 	];
 
 	return (
-		<div className="flex h-96 w-[80vw] m-32">
-			<div className="flex-grow">
-				<DataGrid disableSelectionOnClick columns={columns} rows={rows} />
+		<ThemeProvider
+			theme={createTheme({
+				typography: {
+					fontFamily:
+						'Inter var, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"',
+				},
+			})}
+		>
+			<div className="h-[40vh] w-[60vw] m-16">
+				<DataGrid columns={columns} rows={rows} />
 			</div>
-		</div>
+		</ThemeProvider>
 	);
 };
 
