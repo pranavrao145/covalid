@@ -1,0 +1,19 @@
+.MuiDataGrid-root .MuiDataGrid-main .MuiAutocomplete-root .Mui-disabled {
+    @apply opacity-100;
+}
+
+.MuiDataGrid-root .MuiDataGrid-main .MuiAutocomplete-root .MuiAutocomplete-inputRoot {
+    @apply flex-nowrap;
+}
+
+.MuiDataGrid-root .MuiDataGrid-main .MuiAutocomplete-input .MuiInputBase-input {
+    @apply overflow-visible;
+}
+
+.MuiDataGrid-root .MuiDataGrid-main .MuiAutocomplete-root {
+    @apply w-full;
+}
+
+.MuiDataGrid-root .MuiDataGrid-main .MuiDataGrid-actionsCell {
+    @apply w-full h-full justify-center;
+}

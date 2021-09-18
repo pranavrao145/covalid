@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-var-requires, global-require */
-const { teal } = require("tailwindcss/colors");
+const { teal, orange } = require("tailwindcss/colors");
 
 module.exports = {
 	purge: ["./src/**/*.{js,jsx,ts,tsx}"],
@@ -8,8 +8,14 @@ module.exports = {
 	theme: {
 		extend: {
 			colors: {
-				...teal,
-				600: "#0BA89A",
+				teal: {
+					...teal,
+					600: "#0BA89A",
+				},
+				orange,
+			},
+			fontFamily: {
+				sans: ["Inter var", ...require("tailwindcss/defaultTheme").fontFamily.sans],
 			},
 			fontFamily: {
 				sans: ["Inter var", ...require("tailwindcss/defaultTheme").fontFamily.sans],

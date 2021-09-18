@@ -1,0 +1,29 @@
+.MuiDataGrid-root {
+    @apply rounded-lg;
+}
+
+.MuiDataGrid-root .MuiDataGrid-main .MuiDataGrid-columnsContainer,
+.MuiDataGrid-root .MuiDataGrid-main .MuiDataGrid-cell {
+    @apply border-none;
+}
+
+.MuiDataGrid-root .MuiDataGrid-main .MuiDataGrid-columnSeparator {
+    @apply hidden;
+}
+
+.MuiDataGrid-root .MuiDataGrid-main .MuiDataGrid-row:nth-of-type(even),
+.MuiDataGrid-root .MuiDataGrid-main .MuiDataGrid-columnsContainer {
+    @apply bg-gray-50;
+}
+
+.MuiDataGrid-root .MuiDataGrid-main .MuiDataGrid-columnHeaderTitle {
+    @apply text-gray-500 text-xs leading-4 font-medium tracking-wider uppercase;
+}
+
+.MuiDataGrid-root .MuiDataGrid-main .MuiDataGrid-columnsContainer {
+    @apply justify-center;
+}
+
+.MuiDataGrid-root .MuiGridToolbarContainer-root .MuiButton-root .MuiButton-text {
+    @apply text-8xl;
+}
