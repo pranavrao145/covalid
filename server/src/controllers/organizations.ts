@@ -236,4 +236,3 @@ export const removeAdministratorFromOrganization = async (req: Request, res: Res
         res.status(404).json({ message: "An error occurred removing the administrator from the organization." });
     }
 }
-
