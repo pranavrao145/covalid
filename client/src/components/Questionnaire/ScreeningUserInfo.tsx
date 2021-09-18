@@ -5,7 +5,7 @@ const ScreeningUserInfo: React.FC<ScreeningPropsInterface> = (props: ScreeningPr
 	const { nextStep, prevStep, onChange } = props;
 
 	return (
-		<div className="px-16 lg:px-32 w-screen">
+		<div className="px-16 lg:px-32 w-full mb-24">
 			<h1 className="text-4xl leading-10 font-bold mb-4">Let&apos;s get to know you.</h1>
 			<div>
 				<div className="mb-8">
