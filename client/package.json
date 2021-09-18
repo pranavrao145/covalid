@@ -10,6 +10,7 @@
   "dependencies": {
     "@emotion/react": "^11.4.1",
     "@emotion/styled": "^11.3.0",
+    "@heroicons/react": "^1.0.4",
     "@mui/material": "next",
     "@mui/styles": "next",
     "@mui/x-data-grid": "next",
