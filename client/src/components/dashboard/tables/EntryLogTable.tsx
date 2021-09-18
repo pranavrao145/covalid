@@ -19,12 +19,12 @@ export interface TableEntry {
 	groups: string[];
 	dateCreated: Date;
 	cleared: boolean;
-	answers?: {
-		vaccinated_or_had_covid?: boolean;
-		recently_travelled?: boolean;
-		doctor_told_to_quarantine?: boolean;
-		has_symptoms?: boolean;
-		tested_positive?: boolean;
+	answers: {
+		vaccinated_or_had_covid: boolean;
+		recently_travelled: boolean;
+		doctor_told_to_quarantine: boolean;
+		has_symptoms: boolean;
+		tested_positive: boolean;
 	};
 }
 

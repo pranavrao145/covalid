@@ -3,6 +3,17 @@ import { Dialog, Transition } from "@headlessui/react";
 import { XIcon } from "@heroicons/react/outline";
 import { TableEntry } from "./tables/EntryLogTable";
 
+const questionMapping = {
+	vaccinated_or_had_covid: "Do any of the following apply to you?",
+	recently_travelled:
+		"In the last 14 days, have you travelled outside of Canada and been told to quarantine (per the federal quarantine requirements)?",
+	doctor_told_to_quarantine:
+		"Has a doctor, health care provider, or public health unit told you that you should currently be isolating (staying at home)?",
+	has_symptoms: "Are you currently experiencing any of these symptoms?",
+	tested_positive:
+		"In the last 10 days, have you tested positive on a rapid antigen test or home-based self-testing kit?",
+};
+
 const LogSlideOver: React.FC<{
 	log: TableEntry;
 	open: boolean;
@@ -79,16 +90,16 @@ const LogSlideOver: React.FC<{
 									</div>
 									<div className="px-4 pt-5 pb-5 sm:px-0 sm:pt-0">
 										<dl className="space-y-8 px-4 sm:px-6 sm:space-y-6">
-											<div>
-												<dt className="text-sm font-medium text-gray-500 sm:w-40 sm:flex-shrink-0">Bio</dt>
-												<dd className="mt-1 text-sm text-gray-900 sm:col-span-2">
-													<p>
-														Enim feugiat ut ipsum, neque ut. Tristique mi id elementum praesent. Gravida in tempus
-														feugiat netus enim aliquet a, quam scelerisque. Dictumst in convallis nec in bibendum aenean
-														arcu.
-													</p>
-												</dd>
-											</div>
+											{Object.keys(log.answers).map((k) => (
+												<div key={k}>
+													<dt className="text-sm font-medium text-gray-500 sm:flex-shrink-0">
+														{questionMapping[k as keyof typeof questionMapping]}
+													</dt>
+													<dd className="mt-1 text-sm text-gray-900 sm:col-span-2">
+														<p>{log.answers[k as keyof typeof log.answers] ? "Yes" : "No"}</p>
+													</dd>
+												</div>
+											))}
 										</dl>
 									</div>
 								</div>
