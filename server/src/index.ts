@@ -19,5 +19,5 @@ app.get('/', async (_req: Request, res: Response): Promise<Response> => {
 });
 
 app.listen(PORT, (): void => {
-    console.log(`Listening on port ${PORT}`);
+    console.log(`Listening on port ${PORT}!`);
 });
