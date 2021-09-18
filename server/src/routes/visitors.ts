@@ -1,7 +1,7 @@
-import express from 'express';
+import express, { Router } from 'express';
 import { createVisitor, deleteVisitor, getAllVisitors, getVisitor, updateVisitor } from '../controllers/visitors';
 
-const router = express.Router();
+const router: Router = express.Router();
 
 router.get("/:uid", getVisitor)
 router.get("/", getAllVisitors)

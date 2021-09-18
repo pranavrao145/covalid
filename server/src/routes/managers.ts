@@ -1,7 +1,7 @@
-import express from 'express';
+import express, { Router } from 'express';
 import { createManager, deleteManager, getAllManagers, getManager, updateManager } from '../controllers/managers';
 
-const router = express.Router();
+const router: Router = express.Router();
 
 router.get("/:uid", getManager)
 router.get("/", getAllManagers)
