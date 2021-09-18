@@ -1,90 +1,34 @@
 import React from "react";
+import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
 import { ThemeProvider, createTheme } from "@mui/material";
-import { GridColDef, GridRowModel, GridRowParams } from "@mui/x-data-grid";
-import DataGrid from "./components/DataGrid";
+import Sidebar from "./components/dashboard/Sidebar";
+import EntryLogs from "./pages/EntryLogs";
 
-const App: React.FC = () => {
-	const columns = [
-		{
-			field: "id",
-			hide: true,
-		},
-		{
-			field: "name",
-			headerName: "Name",
-			flex: 1,
-		},
-		{
-			field: "groups",
-			headerName: "Groups",
-			flex: 1,
-		},
-		{
-			field: "entryTime",
-			headerName: "Entry Time",
-			type: "dateTime",
-			flex: 1,
-		},
-		{
-			field: "cleared",
-			headerName: "Cleared",
-			type: "boolean",
-			flex: 1,
-		},
-		{
-			field: "actions",
-			headerName: "Actions",
-			type: "actions",
-			flex: 2,
-			getActions: (params: GridRowParams) => [<button>hi</button>],
-		},
-	] as GridColDef[];
-
-	const rows: GridRowModel[] = [
-		{
-			id: 1,
-			name: "Jane Cooper",
-			groups: "Ms. Smith's Class, Mr. Jones's Class",
-			entryTime: new Date("2021-01-17T09:44:10"),
-			cleared: true,
-		},
-		{
-			id: 2,
-			name: "Jane Cooper",
-			groups: "Ms. Smith's Class, Mr. Jones's Class",
-			entryTime: new Date("2021-01-17T09:44:10"),
-			cleared: true,
-		},
-		{
-			id: 3,
-			name: "Jane Cooper",
-			groups: "Ms. Smith's Class, Mr. Jones's Class",
-			entryTime: new Date("2021-01-17T09:44:10"),
-			cleared: true,
-		},
-		{
-			id: 4,
-			name: "Jane Cooper",
-			groups: "Ms. Smith's Class, Mr. Jones's Class",
-			entryTime: new Date("2021-01-17T09:44:10"),
-			cleared: true,
-		},
-	];
-
-	return (
+const App: React.FC = () => (
+	<Router>
 		<ThemeProvider
 			theme={createTheme({
 				typography: {
 					fontFamily:
 						'Inter var, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"',
 				},
+				palette: {
+					primary: {
+						main: "#0BA89A",
+					},
+				},
 			})}
 		>
-			<div className="h-[40vh] w-[60vw] m-16">
-				<DataGrid columns={columns} rows={rows} />
+			<div className="flex flex-row w-screen h-screen bg-gray-100">
+				<Sidebar selected="Entry Logs" />
+				<Switch>
+					<Route path="/admin/logs">
+						<EntryLogs />
+					</Route>
+				</Switch>
 			</div>
 		</ThemeProvider>
-	);
-};
+	</Router>
+);
 
 export default App;
