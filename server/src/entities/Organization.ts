@@ -1,4 +1,5 @@
-import { PrimaryGeneratedColumn, Column, Entity } from 'typeorm'
+import { PrimaryGeneratedColumn, Column, Entity, OneToMany } from 'typeorm'
+import { Group } from './Group';
 
 @Entity()
 export class Organization {
@@ -13,4 +14,6 @@ export class Organization {
 
     @Column({ type: 'timestamptz' })
     date_created!: Date;
+
+    @OneToMany(() => Group, group => group.organization) groups!: Group[];
 }
