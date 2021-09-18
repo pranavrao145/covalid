@@ -6,6 +6,7 @@ import ScreeningTravelQuarantine from "./ScreeningTravelQuarantine";
 import ScreeningDoctor from "./ScreeningDoctor";
 import ScreeningSymptoms from "./ScreeningSymptoms";
 import ScreeningCovidTesting from "./ScreeningCovidTesting";
+import ScreeningSteps from "./ScreeningSteps";
 
 const QuestionnaireData = {
 	fullName: "",
@@ -58,6 +59,7 @@ const Questionnaire: React.FC = () => {
 					<ScreeningCovidTesting prevStep={prevStep} nextStep={nextStep} onChange={onChange} onSubmit={onSubmit} />
 				)}
 			</form>
+			<ScreeningSteps step={step} nextStep={nextStep} prevStep={prevStep} />
 		</>
 	);
 };
