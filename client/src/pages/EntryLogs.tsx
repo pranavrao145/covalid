@@ -2,14 +2,6 @@ import React, { useState } from "react";
 import EntryLogTable from "../components/dashboard/tables/EntryLogTable";
 import LogSlideOver from "../components/dashboard/LogSlideOver";
 
-/*
-		vaccinated_or_had_covid?: boolean;
-		recently_travelled?: boolean;
-		doctor_told_to_quarantine?: boolean;
-		has_symptoms?: boolean;
-		tested_positive?: boolean;
- */
-
 const questionMapping = {
 	vaccinated_or_had_covid: "Do any of the following apply to you?",
 	recently_travelled:
@@ -57,7 +49,7 @@ const entries = [
 ];
 
 const EntryLogs: React.FC = () => {
-	const [open, setOpen] = useState(true);
+	const [open, setOpen] = useState(false);
 	return (
 		<>
 			<div className="flex flex-col w-full h-[fit-content] justify-center mx-16 my-8 gap-y-8">
