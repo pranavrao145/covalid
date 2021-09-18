@@ -101,3 +101,22 @@ export const deleteAdministrator = async (req: Request, res: Response) => {
         res.status(404).json({ message: "An error occurred deleting this administrator." });
     }
 }
+
+// GET /administrators/:firebase_uid/organizations
+export const getAdministratorOrganizations = async (req: Request, res: Response) => {
+    // get a connection to the database
+    const connection = await createConnection();
+
+    // access the administrator repository
+    const repository = connection.getRepository(Administrator);
+
+    try {
+        // get the administrator with the uid specified
+        const administrator = await repository.findOne({ firebase_uid: req.params.firebase_uid });
+        // get the organizations of the administrator
+        const organizations = administrator!.organizations;
+        res.status(200).json(organizations);
+    } catch (e) {
+        res.status(404).json({ message: "An error occurred fetching this administrator's organizations." });
+    }
+}
