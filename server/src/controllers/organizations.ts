@@ -101,3 +101,22 @@ export const deleteOrganization = async (req: Request, res: Response) => {
         res.status(404).json({ message: "An error occurred deleting this organization." });
     }
 }
+
+// GET /organizations/:id/groups
+export const getOrganizationGroups = async (req: Request, res: Response) => {
+    // get a connection to the database
+    const connection = await createConnection();
+
+    // access the organization repository
+    const repository = connection.getRepository(Organization);
+
+    try {
+        // get the organization with the uid specified
+        const organization = await repository.findOne(req.params.id);
+        // get the groups of the organization
+        const groups = organization!.groups;
+        res.status(200).json(groups);
+    } catch (e) {
+        res.status(404).json({ message: "An error occurred fetching this organization's groups." });
+    }
+}
