@@ -2,7 +2,7 @@ import { Request, Response } from "express";
 import { createConnection } from "typeorm";
 import { Visitor } from "../entities/Visitor";
 
-// GET /visitors/:firebase_id
+// GET /visitors/:firebase_uid
 export const getVisitor = async (req: Request, res: Response) => {
     // get a connection to the database
     const connection = await createConnection();

@@ -2,7 +2,7 @@ import { Request, Response } from "express";
 import { createConnection } from "typeorm";
 import { Manager } from "../entities/Manager";
 
-// GET /managers/:firebase_id
+// GET /managers/:firebase_uid
 export const getManager = async (req: Request, res: Response) => {
     // get a connection to the database
     const connection = await createConnection();
