@@ -1,7 +1,7 @@
-import express from 'express';
+import express, { Router } from 'express';
 import { createLog, deleteLog, getAllLogs, getLog, updateLog } from '../controllers/logs';
 
-const router = express.Router();
+const router: Router = express.Router();
 
 router.get("/:uid", getLog)
 router.get("/", getAllLogs)
