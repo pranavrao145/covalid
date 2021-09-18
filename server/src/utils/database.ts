@@ -14,7 +14,10 @@ export async function connectToDB(): Promise<Connection> {
             ssl: {
                 rejectUnauthorized: false
             }
-        }
+        },
+        "entities": [
+            "../entities/*.ts"
+        ]
     }
 
     // attempt to connect to the database
