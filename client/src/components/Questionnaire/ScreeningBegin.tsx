@@ -2,8 +2,8 @@ import React from "react";
 import { ExclamationIcon } from "@heroicons/react/solid";
 import { ScreeningPropsInterface } from "./ScreeningPropsInterface";
 
-const ScreeningBegin = (props: ScreeningPropsInterface) => {
-	const { nextStep, onChange } = props;
+const ScreeningBegin: React.FC<ScreeningPropsInterface> = (props: ScreeningPropsInterface) => {
+	const { nextStep } = props;
 
 	return (
 		<div className="px-16 lg:px-32">
