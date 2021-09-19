@@ -101,3 +101,22 @@ export const deleteManager = async (req: Request, res: Response) => {
         res.status(404).json({ message: "An error occurred deleting this manager." });
     }
 }
+
+// GET /managers/:firebase_uid/groups
+export const getManagerGroups = async (req: Request, res: Response) => {
+    // get a connection to the database
+    const connection = await createConnection();
+
+    // access the manager repository
+    const repository = connection.getRepository(Manager);
+
+    try {
+        // get the manager with the uid specified
+        const manager = await repository.findOne({ firebase_uid: req.params.firebase_uid });
+        // get the groups of the manager
+        const groups = manager!.groups;
+        res.status(200).json(groups);
+    } catch (e) {
+        res.status(404).json({ message: "An error occurred fetching this manager's groups." });
+    }
+}

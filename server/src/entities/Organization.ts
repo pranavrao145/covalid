@@ -18,7 +18,6 @@ export class Organization {
 
     @OneToMany(() => Group, group => group.organization) groups!: Group[];
 
-    @ManyToMany(() => Administrator)
-    @JoinTable()
+    @ManyToMany(() => Administrator, administrator => administrator.organizations)
     administrators!: Administrator[];
 }
