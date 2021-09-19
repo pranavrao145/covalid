@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { ScreeningStepsInterface } from "./ScreeningPropsInterface";
 import ScreeningBegin from "./ScreeningBegin";
 import ScreeningUserInfo from "./ScreeningUserInfo";
 import ScreeningVaccination from "./ScreeningVaccination";
@@ -7,6 +8,7 @@ import ScreeningDoctor from "./ScreeningDoctor";
 import ScreeningSymptoms from "./ScreeningSymptoms";
 import ScreeningCovidTesting from "./ScreeningCovidTesting";
 import ScreeningSteps from "./ScreeningSteps";
+import ScreeningApproved from "./ScreeningApproved";
 
 const QuestionnaireData = {
 	fullName: "",
@@ -23,9 +25,9 @@ const QuestionnaireData = {
 	noneOfTheAbove: false,
 };
 
-const Questionnaire: React.FC = () => {
+const Questionnaire: React.FC<ScreeningStepsInterface> = (props: ScreeningStepsInterface) => {
+	const { step, nextStep, prevStep } = props;
 	const [, setFormData] = useState(QuestionnaireData);
-	const [step, setStep] = useState<number>(1);
 
 	const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 		setFormData((prevFormData) => ({
@@ -38,17 +40,9 @@ const Questionnaire: React.FC = () => {
 		e.preventDefault();
 	};
 
-	const nextStep = () => {
-		setStep((oldStep) => oldStep + 1);
-	};
-
-	const prevStep = () => {
-		setStep((oldStep) => oldStep - 1);
-	};
-
 	return (
 		<>
-			<form onSubmit={onSubmit} className="bg-gray-100">
+			<form onSubmit={onSubmit}>
 				{step === 1 && <ScreeningBegin nextStep={nextStep} />}
 				{step === 2 && <ScreeningUserInfo prevStep={prevStep} nextStep={nextStep} onChange={onChange} />}
 				{step === 3 && <ScreeningVaccination prevStep={prevStep} nextStep={nextStep} onChange={onChange} />}
@@ -58,8 +52,9 @@ const Questionnaire: React.FC = () => {
 				{step === 7 && (
 					<ScreeningCovidTesting prevStep={prevStep} nextStep={nextStep} onChange={onChange} onSubmit={onSubmit} />
 				)}
+				{step === 8 && <ScreeningApproved />}
 			</form>
-			<ScreeningSteps step={step} nextStep={nextStep} prevStep={prevStep} />
+			{step <= 7 && <ScreeningSteps step={step} />}
 		</>
 	);
 };
