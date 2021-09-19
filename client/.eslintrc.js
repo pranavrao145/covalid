@@ -27,6 +27,7 @@ module.exports = {
 		"react/jsx-props-no-spreading": 0,
 		"react/jsx-filename-extension": [2, { extensions: [".js", ".jsx", ".ts", ".tsx"] }],
 		"import/no-extraneous-dependencies": 0,
+		"@typescript-eslint/ban-ts-comment": 0,
 		"jsx-a11y/label-has-associated-control": ["error", {
 			"required": {
 				"some": ["nesting", "id"]

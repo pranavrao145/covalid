@@ -1,95 +1,19 @@
 import React from "react";
-import { ThemeProvider, createTheme } from "@mui/material";
-import { GridColDef, GridRowModel, GridRowParams } from "@mui/x-data-grid";
-import DataGrid from "./components/DataGrid";
-import Questionnaire from "./components/Questionnaire/Questionnaire";
-import TopBar from "./TopBar";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Admin from "./pages/Admin";
+import QuestionnairePage from "./pages/Questionnaire";
 
-const App: React.FC = () => {
-	const columns = [
-		{
-			field: "id",
-			hide: true,
-		},
-		{
-			field: "name",
-			headerName: "Name",
-			flex: 1,
-		},
-		{
-			field: "groups",
-			headerName: "Groups",
-			flex: 1,
-		},
-		{
-			field: "entryTime",
-			headerName: "Entry Time",
-			type: "dateTime",
-			flex: 1,
-		},
-		{
-			field: "cleared",
-			headerName: "Cleared",
-			type: "boolean",
-			flex: 1,
-		},
-		{
-			field: "actions",
-			headerName: "Actions",
-			type: "actions",
-			flex: 2,
-			getActions: (params: GridRowParams) => [<button type="button">hi</button>],
-		},
-	] as GridColDef[];
-
-	const rows: GridRowModel[] = [
-		{
-			id: 1,
-			name: "Jane Cooper",
-			groups: "Ms. Smith's Class, Mr. Jones's Class",
-			entryTime: new Date("2021-01-17T09:44:10"),
-			cleared: true,
-		},
-		{
-			id: 2,
-			name: "Jane Cooper",
-			groups: "Ms. Smith's Class, Mr. Jones's Class",
-			entryTime: new Date("2021-01-17T09:44:10"),
-			cleared: true,
-		},
-		{
-			id: 3,
-			name: "Jane Cooper",
-			groups: "Ms. Smith's Class, Mr. Jones's Class",
-			entryTime: new Date("2021-01-17T09:44:10"),
-			cleared: true,
-		},
-		{
-			id: 4,
-			name: "Jane Cooper",
-			groups: "Ms. Smith's Class, Mr. Jones's Class",
-			entryTime: new Date("2021-01-17T09:44:10"),
-			cleared: true,
-		},
-	];
-
-	return (
-		<ThemeProvider
-			theme={createTheme({
-				typography: {
-					fontFamily:
-						'Inter var, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"',
-				},
-			})}
-		>
-			<>
-				<TopBar />
-				<div className="h-screen w-full flex flex-col items-center justify-center bg-gray-100">
-					<Questionnaire />
-				</div>
-			</>
-		</ThemeProvider>
-	);
-};
+const App: React.FC = () => (
+	<Router>
+		<Switch>
+			<Route path="/admin">
+				<Admin />
+			</Route>
+			<Route path="*">
+				<QuestionnairePage />
+			</Route>
+		</Switch>
+	</Router>
+);
 
 export default App;
