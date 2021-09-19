@@ -3,10 +3,10 @@ import { createVisitor, deleteVisitor, getAllVisitors, getVisitor, updateVisitor
 
 const router: Router = express.Router();
 
-router.get("/:uid", getVisitor)
+router.get("/:firebase_uid", getVisitor)
 router.get("/", getAllVisitors)
 router.post("/", createVisitor)
-router.put("/:uid", updateVisitor)
-router.delete("/:uid", deleteVisitor)
+router.put("/:firebase_uid", updateVisitor)
+router.delete("/:firebase_uid", deleteVisitor)
 
 export default router;
