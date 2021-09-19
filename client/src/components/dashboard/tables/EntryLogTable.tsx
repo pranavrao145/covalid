@@ -46,7 +46,8 @@ const renderGroupsInput = ({ value }: GridRenderCellParams | GridRenderEditCellP
 const EntryLogTable: React.FC<{
 	entries: TableEntry[];
 	toggleSlideOver: React.Dispatch<React.SetStateAction<boolean>>;
-}> = ({ entries, toggleSlideOver }) => {
+	toggleDialog: React.Dispatch<React.SetStateAction<boolean>>;
+}> = ({ entries, toggleSlideOver, toggleDialog }) => {
 	const columns = (
 		[
 			{
@@ -88,7 +89,9 @@ const EntryLogTable: React.FC<{
 				flex: 2,
 				getActions: () => [
 					<Button onClick={() => toggleSlideOver(true)}>View full log</Button>,
-					<Button className="bg-orange-600 hover:bg-orange-700">Trace contacts</Button>,
+					<Button onClick={() => toggleDialog(true)} className="bg-orange-600 hover:bg-orange-700">
+						Trace contacts
+					</Button>,
 				],
 				align: "center",
 				headerAlign: "center",
