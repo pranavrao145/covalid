@@ -4,7 +4,7 @@ import Questionnaire from "../components/Questionnaire/Questionnaire";
 import TopBar from "../components/TopBar";
 
 const QuestionnairePage: React.FC = () => {
-	const [step, setStep] = useState<number>(8);
+	const [step, setStep] = useState<number>(1);
 
 	const nextStep = () => {
 		setStep((oldStep) => oldStep + 1);
