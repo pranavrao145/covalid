@@ -51,7 +51,7 @@ const LogSlideOver: React.FC<{
 										<div className="ml-3 h-7 flex items-center">
 											<button
 												type="button"
-												className="bg-white rounded-md text-gray-400 hover:text-gray-500 focus:ring-2 focus:ring-indigo-500"
+												className="bg-white rounded-md text-gray-400 hover:text-gray-500 focus:ring-2 focus:ring-teal-500"
 												onClick={() => setOpen(false)}
 											>
 												<span className="sr-only">Close panel</span>
@@ -74,13 +74,13 @@ const LogSlideOver: React.FC<{
 												<div className="mt-5 flex flex-wrap space-y-3 sm:space-y-0 sm:space-x-3">
 													<button
 														type="button"
-														className="flex-shrink-0 w-full inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:flex-1"
+														className="flex-shrink-0 w-full inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-teal-600 hover:bg-teal-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-500 sm:flex-1"
 													>
 														Print results
 													</button>
 													<button
 														type="button"
-														className="flex-1 w-full inline-flex items-center justify-center px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+														className="flex-1 w-full inline-flex items-center justify-center px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-500"
 													>
 														Save as PDF
 													</button>
