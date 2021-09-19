@@ -1,4 +1,4 @@
-import { PrimaryGeneratedColumn, Column, Entity, ManyToOne } from 'typeorm'
+import { PrimaryGeneratedColumn, Column, Entity, ManyToOne, JoinTable, ManyToMany } from 'typeorm'
 import { Organization } from './Organization';
 import { Member } from './Member';
 import { Manager } from './Manager';
@@ -18,4 +18,12 @@ export class Group {
     date_created!: Date;
 
     @ManyToOne(() => Organization, organization => organization.groups) organization!: Organization;
+    
+    @ManyToMany(() => Member, member => member.groups)
+    @JoinTable()
+    members!: Group[];
+
+    @ManyToMany(() => Manager, manager => manager.groups)
+    @JoinTable()
+    managers!: Group[];
 }
