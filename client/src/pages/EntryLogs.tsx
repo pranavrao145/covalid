@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import EntryLogTable from "../components/dashboard/tables/EntryLogTable";
 import LogSlideOver from "../components/dashboard/LogSlideOver";
+import ContactTracingPopup from "../components/dashboard/ContactTracingPopup";
 
 const entries = [
 	{
@@ -66,14 +67,25 @@ const entries = [
 ];
 
 const EntryLogs: React.FC = () => {
-	const [open, setOpen] = useState(false);
+	const [slideOverOpen, setSlideOverOpen] = useState(false);
+	const [dialogOpen, setDialogOpen] = useState(false);
+	const [currentUser, setCurrentUser] = useState({});
+
+	const tracingTimeframeOptions = ["1 day", "7 days", "14 days", "30 days"];
+	const [tracingTimeframe, setTracingTimeframe] = useState(tracingTimeframeOptions[2]);
 	return (
 		<>
 			<div className="flex flex-col w-full h-[fit-content] justify-center mx-16 my-8 gap-y-8">
 				<h1 className="text-2xl leading-8 font-semibold">Entry Logs</h1>
-				<EntryLogTable entries={entries} toggleSlideOver={setOpen} />
+				<EntryLogTable entries={entries} toggleSlideOver={setSlideOverOpen} toggleDialog={setDialogOpen} />
 			</div>
-			<LogSlideOver log={entries[2]} open={open} setOpen={setOpen} />
+			<LogSlideOver log={entries[2]} open={slideOverOpen} setOpen={setSlideOverOpen} />
+			<ContactTracingPopup
+				open={dialogOpen}
+				setOpen={setDialogOpen}
+				tracingTimeframe={tracingTimeframe}
+				setTracingTimeframe={setTracingTimeframe}
+			/>
 		</>
 	);
 };
