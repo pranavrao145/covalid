@@ -2,7 +2,7 @@ import React from "react";
 import { ScreeningPropsInterface } from "./ScreeningPropsInterface";
 
 const ScreeningCovidTesting: React.FC<ScreeningPropsInterface> = (props: ScreeningPropsInterface) => {
-	const { prevStep } = props;
+	const { nextStep, prevStep } = props;
 
 	return (
 		<div className="px-16 lg:px-32 mb-24">
@@ -20,10 +20,18 @@ const ScreeningCovidTesting: React.FC<ScreeningPropsInterface> = (props: Screeni
 				>
 					Go Back
 				</button>
-				<button type="submit" className="mr-2 bg-green-600 text-white px-6 py-2 rounded hover:bg-green-700">
+				<button
+					type="submit"
+					onClick={nextStep}
+					className="mr-2 bg-green-600 text-white px-6 py-2 rounded hover:bg-green-700"
+				>
 					No
 				</button>
-				<button type="submit" className="bg-green-600 text-white px-6 py-2 rounded hover:bg-green-700">
+				<button
+					type="submit"
+					onClick={nextStep}
+					className="bg-green-600 text-white px-6 py-2 rounded hover:bg-green-700"
+				>
 					Yes
 				</button>
 			</div>
